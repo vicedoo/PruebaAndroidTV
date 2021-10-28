@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PruebaAndroidTV</string>
+    <string name="btn_login">Login</string>
+    <string name="et_user">Username</string>
+    <string name="et_pass">Password</string>
+    <string name="et_email">Email</string>
 </resources>
