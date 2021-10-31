@@ -7,13 +7,13 @@ public class ResponseLogin {
 
     @SerializedName("error")
     @Expose
-    private String error;
+    private boolean error;
     @SerializedName("message")
     @Expose
     private String message;
     @SerializedName("authorized")
     @Expose
-    private String authorized;
+    private boolean authorized;
     @SerializedName("token")
     @Expose
     private String token;
@@ -32,7 +32,7 @@ public class ResponseLogin {
      * @param message
      * @param token
      */
-    public ResponseLogin(String error, String message, String authorized, String token) {
+    public ResponseLogin(boolean error, String message, boolean authorized, String token) {
         super();
         this.error = error;
         this.message = message;
@@ -40,11 +40,11 @@ public class ResponseLogin {
         this.token = token;
     }
 
-    public String getError() {
+    public boolean getError() {
         return error;
     }
 
-    public void setError(String error) {
+    public void setError(boolean error) {
         this.error = error;
     }
 
@@ -56,11 +56,11 @@ public class ResponseLogin {
         this.message = message;
     }
 
-    public String getAuthorized() {
+    public boolean getAuthorized() {
         return authorized;
     }
 
-    public void setAuthorized(String authorized) {
+    public void setAuthorized(boolean authorized) {
         this.authorized = authorized;
     }
 

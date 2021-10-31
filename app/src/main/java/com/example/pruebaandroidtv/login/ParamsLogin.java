@@ -12,7 +12,9 @@ public class ParamsLogin {
     @SerializedName("pass")
     @Expose
     private String pass;
-
+    @SerializedName("device")
+    @Expose
+    private String device;
     /**
      * No args constructor for use in serialization
      * 
@@ -24,11 +26,13 @@ public class ParamsLogin {
      * 
      * @param pass
      * @param user
+     * @param device
      */
-    public ParamsLogin(String user, String pass) {
+    public ParamsLogin(String user, String pass, String device) {
         super();
         this.user = user;
         this.pass = pass;
+        this.device = device;
     }
 
     public String getUser() {
@@ -47,4 +51,11 @@ public class ParamsLogin {
         this.pass = pass;
     }
 
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
 }
