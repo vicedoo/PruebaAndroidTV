@@ -5,7 +5,7 @@ public class Contenido {
     private String id;
     private String title;
     private String cover;
-    private String duration;
+    private int duration;
     private String url;
     private String section;
 
@@ -13,7 +13,7 @@ public class Contenido {
 
     }
 
-    public Contenido(String id, String title, String cover, String duration, String url, String section) {
+    public Contenido(String id, String title, String cover, int duration, String url, String section) {
         this.id = id;
         this.title = title;
         this.cover = cover;
@@ -46,11 +46,11 @@ public class Contenido {
         this.cover = cover;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

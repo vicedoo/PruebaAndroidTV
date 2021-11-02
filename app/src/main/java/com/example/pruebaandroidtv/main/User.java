@@ -6,14 +6,14 @@ public class User {
 
     private String name;
     private String avatar;
-    private ArrayList<String> favs;
-    private ArrayList<String> lastShowed;
+    private String[] favs;
+    private String[] lastShowed;
 
     public User(){
 
     }
 
-    public User(String name, String avatar, ArrayList<String> favs, ArrayList<String> lastShowed) {
+    public User(String name, String avatar, String[] favs, String[] lastShowed) {
         this.name = name;
         this.avatar = avatar;
         this.favs = favs;
@@ -36,19 +36,19 @@ public class User {
         this.avatar = avatar;
     }
 
-    public ArrayList<String> getFavs() {
+    public String[] getFavs() {
         return favs;
     }
 
-    public void setFavs(ArrayList<String> favs) {
+    public void setFavs(String[] favs) {
         this.favs = favs;
     }
 
-    public ArrayList<String> getLastShowed() {
+    public String[] getLastShowed() {
         return lastShowed;
     }
 
-    public void setLastShowed(ArrayList<String> lastShowed) {
+    public void setLastShowed(String[] lastShowed) {
         this.lastShowed = lastShowed;
     }
 }
