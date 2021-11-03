@@ -19,6 +19,8 @@ import com.example.pruebaandroidtv.ui.player.PlayerActivity;
 
 import org.w3c.dom.Text;
 
+import java.sql.Array;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -27,6 +29,7 @@ public class MyContenidoRecyclerViewAdapter extends RecyclerView.Adapter<MyConte
     private final List<Contenido> mValues;
     private Context context;
     private User user;
+    private List<String> favs;
 
 
     public MyContenidoRecyclerViewAdapter(Context context, List<Contenido> items, User user) {
@@ -61,14 +64,20 @@ public class MyContenidoRecyclerViewAdapter extends RecyclerView.Adapter<MyConte
 
         }
 
-        holder.ivLike.setOnClickListener(new View.OnClickListener() {
+        // LIKES NO FUNCIONA
+
+        /*holder.ivLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
+                if(favs.contains(holder.mItem.getId())){
+                    Glide.with(context).load(R.drawable.ic_like)
+                            .into(holder.ivLike);
+                }else {
+                    Glide.with(context).load(R.drawable.ic_like_pink)
+                            .into(holder.ivLike);
+                }
             }
-        });
+        });*/
 
         holder.ivPortada.setOnClickListener(new View.OnClickListener() {
             @Override

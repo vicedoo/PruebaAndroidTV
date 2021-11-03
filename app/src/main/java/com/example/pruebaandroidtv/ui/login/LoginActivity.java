@@ -36,9 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        getSupportActionBar().hide();
-
         checkSharedPreferences();
         retrofitInit();
         findViews();
@@ -47,11 +44,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkSharedPreferences(){
-       if(!SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN).isEmpty() || SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN)==null){
+       if(SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN)==null || SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN).isEmpty()){
+
+       }else{
            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
            startActivity(intent);
            finish();
-       }
+        }
+
     }
 
     private void retrofitInit(){
