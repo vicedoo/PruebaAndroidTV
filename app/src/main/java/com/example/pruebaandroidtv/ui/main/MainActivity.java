@@ -22,58 +22,12 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    public RetrofitService retrofitService;
-    public AppClient appClient;
-    public String token;
-    public User user;
-    public Contenido[] contenidos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Bundle bundle = getIntent().getExtras();
-        token = bundle.getString("token");
-
-        retrofitInit();
-        endPointMain();
-
-    }
-
-    private void retrofitInit(){
-
-        appClient = AppClient.getInstance();
-        retrofitService = appClient.getRetrofitService();
-
-    }
-
-    private void endPointMain(){
-
-        String device = Constantes.ANDROID_DEVICE;
-
-        Call<ResponseGetView> call = retrofitService.doGetView(token, device);
-        call.enqueue(new Callback<ResponseGetView>() {
-            @Override
-            public void onResponse(Call<ResponseGetView> call, Response<ResponseGetView> response) {
-                if (response.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Conexion correcta", Toast.LENGTH_SHORT).show();
-
-                    setClases(response);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseGetView> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Problemas de conexión", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    private void setClases(Response<ResponseGetView> response){
-        user = response.body().getUser();
-        contenidos = response.body().getContenidos();
+        getSupportActionBar().hide();
     }
 
 }

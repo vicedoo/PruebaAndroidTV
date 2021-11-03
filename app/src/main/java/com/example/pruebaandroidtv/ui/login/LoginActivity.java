@@ -39,10 +39,19 @@ public class LoginActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        checkSharedPreferences();
         retrofitInit();
         findViews();
         events();
 
+    }
+
+    private void checkSharedPreferences(){
+       if(!SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN).isEmpty() || SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN)==null){
+           Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+           startActivity(intent);
+           finish();
+       }
     }
 
     private void retrofitInit(){

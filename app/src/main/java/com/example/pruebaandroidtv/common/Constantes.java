@@ -17,5 +17,6 @@ public class Constantes {
     // Preferences
     public static final String PREF_TOKEN = "PREF_TOKEN";
 
+    public static final String PARAMSPLAYER_ID = "id";
 
 }

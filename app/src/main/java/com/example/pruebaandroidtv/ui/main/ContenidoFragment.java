@@ -22,6 +22,7 @@ import com.example.pruebaandroidtv.main.ResponseGetView;
 import com.example.pruebaandroidtv.main.User;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,12 +36,11 @@ import retrofit2.Response;
 public class ContenidoFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
-    private int mColumnCount = 1;
+    private int mColumnCount = 2;
     private List<Contenido> contenidoList;
     private MyContenidoRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
     public User user;
-    public Contenido[] contenidos;
     public RetrofitService retrofitService;
     public AppClient appClient;
 
@@ -100,7 +100,6 @@ public class ContenidoFragment extends Fragment {
     private void actualizarContenido(){
 
         String device = Constantes.ANDROID_DEVICE;
-
         String token = SharedPreferencesManager.getSomeStringValue(Constantes.PREF_TOKEN);
 
         Call<ResponseGetView> call = retrofitService.doGetView(token, device);
@@ -108,10 +107,8 @@ public class ContenidoFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseGetView> call, Response<ResponseGetView> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(getActivity(), "Conexion correcta", Toast.LENGTH_SHORT).show();
-
                     setClases(response);
-                    adapter = new MyContenidoRecyclerViewAdapter(getActivity(), contenidoList);
+                    adapter = new MyContenidoRecyclerViewAdapter(getActivity(), contenidoList, user);
                     recyclerView.setAdapter(adapter);
 
                 }
@@ -129,7 +126,6 @@ public class ContenidoFragment extends Fragment {
 
     private void setClases(Response<ResponseGetView> response){
         user = response.body().getUser();
-        contenidos = response.body().getContenidos();
-        contenidoList = Arrays.asList(contenidos);
+        contenidoList = response.body().getContenidos();
     }
 }

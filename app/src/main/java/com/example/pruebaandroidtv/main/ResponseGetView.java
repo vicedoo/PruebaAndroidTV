@@ -1,15 +1,18 @@
 package com.example.pruebaandroidtv.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ResponseGetView {
 
     private User user;
-    private Contenido[] contenidos;
+    private ArrayList<Contenido> contents = new ArrayList<>();
 
     public ResponseGetView(){}
 
-    public ResponseGetView(User user, Contenido[] contenidos) {
+    public ResponseGetView(User user, ArrayList<Contenido> contents) {
         this.user = user;
-        this.contenidos = contenidos;
+        this.contents = contents;
     }
 
     public User getUser() {
@@ -20,11 +23,11 @@ public class ResponseGetView {
         this.user = user;
     }
 
-    public Contenido[] getContenidos() {
-        return contenidos;
+    public ArrayList<Contenido> getContenidos() {
+        return contents;
     }
 
-    public void setContenidos(Contenido[] contenidos) {
-        this.contenidos = contenidos;
+    public void setContenidos(ArrayList<Contenido> contents) {
+        this.contents = contents;
     }
 }

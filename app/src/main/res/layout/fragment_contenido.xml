@@ -2,46 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00F4EFEF">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewNota"
-        style="@style/CardView.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        app:cardBackgroundColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="parent"
+    <ImageView
+        android:id="@+id/ivPortada"
+        android:layout_width="120dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="12dp">
+    <ImageView
+        android:id="@+id/ivLike"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPortada"
+        app:layout_constraintStart_toEndOf="@+id/ivPortada"
+        app:srcCompat="@drawable/ic_like" />
 
-            <ImageView
-                android:id="@+id/ivPortada"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-            <ImageView
-                android:id="@+id/ivLike"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_weight="1"
-                app:layout_constraintBottom_toBottomOf="@+id/ivPortada"
-                app:layout_constraintEnd_toEndOf="@+id/ivPortada"
-                app:layout_constraintTop_toTopOf="@+id/ivPortada"
-                app:layout_constraintVertical_bias="0.947"
-                app:srcCompat="@drawable/ic_like" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvTitulo"
+        android:textColor="#000000"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLike"
+        app:layout_constraintEnd_toStartOf="@+id/ivLike"
+        app:layout_constraintStart_toStartOf="@+id/ivPortada"
+        app:layout_constraintTop_toTopOf="@+id/ivLike"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
